@@ -1,0 +1,38 @@
+{% extends "home/base.html" %}
+
+{% block title %}
+    <h2>Clientes</h2>
+{% endblock title %}
+    
+{% block content %}
+    <table style="border-collapse: separate; border-spacing: 10px;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>País</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.id }}</td>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellido }}</td>
+                    <td>{{ cliente.pais_origen_id.nombre }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">No se encontraron resultados.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{% url 'cliente:agregar_pais' %}">Agregar pais</a></p>
+    <p><a href="{% url 'cliente:buscar' %}">Buscar cliente por pais</a></p>
+    <p><a href="{% url 'cliente:crear' %}">Crear cliente</a></p>
+    <p><a href="{% url 'cliente:eliminar_cliente' %}">Eliminar cliente</a></p>
+    <p><a href="{% url 'home:index' %}">Ir al inicio</a></p>    
+{% endblock content %}

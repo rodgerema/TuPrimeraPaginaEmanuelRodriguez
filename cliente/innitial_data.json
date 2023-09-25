@@ -1,0 +1,37 @@
+[
+    {
+        "model": "cliente.pais",
+        "pk": 1,
+        "fields": {
+            "nombre": "Argentina"
+        }
+    },
+    {
+        "model": "cliente.pais",
+        "pk": 2,
+        "fields": {
+            "nombre": "Chile"
+        }
+    },
+    {
+        "model": "cliente.pais",
+        "pk": 3,
+        "fields": {
+            "nombre": "Brasil"
+        }
+    },
+    {
+        "model": "cliente.pais",
+        "pk": 4,
+        "fields": {
+            "nombre": "Colombia"
+        }
+    },
+    {
+        "model": "cliente.pais",
+        "pk": 5,
+        "fields": {
+            "nombre": "EEUU"
+        }
+    }
+]
