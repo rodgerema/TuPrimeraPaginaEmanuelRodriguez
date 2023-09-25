@@ -41,12 +41,12 @@ python manage.py runserver
 
 El sitio creado presenta la siguiente estructura:
 
-**/** - El "HOME" de la pagina muestra una barra de navegacion en la parte superior que permite navegar entre todas las secciones disponibles, dichos accesos son parte del base.html, por lo que estaran presentes en todas las paginas del sitio. En la parte inferior se proveen los mismos accesos, pero estos son parte del index.html. El link de "ABOUT" te dirije a una pagina donde hay una breve descripcion de mi carrera profesional y hay un icono de Linkedin que permite llegar a mi perfil de Linekdin.
+**http://localhost:8000/** - El "HOME" de la pagina muestra una barra de navegacion en la parte superior que permite navegar entre todas las secciones disponibles, dichos accesos son parte del base.html, por lo que estaran presentes en todas las paginas del sitio. En la parte inferior se proveen los mismos accesos, pero estos son parte del index.html. El link de "ABOUT - http://localhost:8000/about" te dirije a una pagina donde hay una breve descripcion de mi carrera profesional y hay un icono de Linkedin que permite llegar a mi perfil de Linekdin.
 Todas las paginas tienen un boton para volver el index.html de la aplicacion.
 
-**/COMPRAS** - El link "COMPRAS" permite visualizar en su index.html un listado en formato de tabla, de las compras realizadas. Dispone de dos botones, uno para ingresa una nueva compra y el otro permite realizar una busqueda por categoria de compra. Todas las paginas tienen un boton para volver el index.html de la aplicacion.
+**http://localhost:8000/compras** - El link "COMPRAS" permite visualizar en su index.html un listado en formato de tabla, de las compras realizadas. Dispone de dos botones, uno para ingresa una nueva compra y el otro permite realizar una busqueda por categoria de compra. Todas las paginas tienen un boton para volver el index.html de la aplicacion.
 
-**/CLIENTES** - El link "CLIENTES" permite visualizar en su index.html un listado en formato de tabla, de los clientes registrados. Dispone de cuatro botones:
+**http://localhost:8000/cliente** - El link "CLIENTES" permite visualizar en su index.html un listado en formato de tabla, de los clientes registrados. Dispone de cuatro botones:
 
     * AGREGAR PAIS - permite agregar un nuevo pais a la DB
     * BUSCAR CLIENTE POR PAIS - permite buscar clientes por pais
@@ -55,7 +55,7 @@ Todas las paginas tienen un boton para volver el index.html de la aplicacion.
 
 Todas las paginas tienen un boton para volver el index.html de la aplicacion.
 
-**/STOCK** - El link "STOCK" permite visualizar en su index.html un listado en formato de tabla, del stock disponible. Dispone de dos botones, uno para agregar un nuevo articulo al stock y el otro permite realizar una busqueda por ubicacion. Todas las paginas tienen un boton para volver el index.html de la aplicacion.
+**http://localhost:8000/stock** - El link "STOCK" permite visualizar en su index.html un listado en formato de tabla, del stock disponible. Dispone de dos botones, uno para agregar un nuevo articulo al stock y el otro permite realizar una busqueda por ubicacion. Todas las paginas tienen un boton para volver el index.html de la aplicacion.
 
 ## Extras
 
