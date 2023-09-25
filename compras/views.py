@@ -28,7 +28,7 @@ def buscar(request):
     if request.method == 'POST':
         form = BuscarPorCategoria(request.POST)
         if form.is_valid():
-            ubicacion = form.cleaned_data['categoria']
+            categoria = form.cleaned_data['categoria']
             try:
                 categoria = Categoria.objects.get(categoria=categoria)
                 resultados = Compras.objects.filter(categoria_id=categoria)
