@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+    Vista en detalle
+{% endblock title %}
+
+{% block content %}
+
+    <ul>
+        <li><strong>ID:</strong> {{ object.id }}
+        <li><strong>Nombre:</strong> {{ object.nombre }}
+        <li><strong>Apellido:</strong> {{ object.apellido }}
+        <li><strong>Fecha de nacimiento:</strong> {{ object.nacimiento }}
+        <li><strong>Pais:</strong> {{ object.pais_origen_id }}
+    </ul>
+    <p>
+        <a class="btn btn-secondary justify-content-around mt-4"
+           href="{% url 'cliente:index' %}">Ir al inicio</a>
+    </p>
+
+{% endblock content %}

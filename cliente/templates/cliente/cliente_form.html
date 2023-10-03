@@ -1,15 +1,22 @@
-{% extends "home/base.html" %}
+{% extends 'home/base.html' %}
+
 {% block title %}
-    <h2>Crear cliente</h2>
+    Cliente
 {% endblock title %}
+
 {% block content %}
+
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <div class="row mt-4">
+            <button type="submit" class="btn btn-success ">Guardar</button>
+        </div>
     </form>
+    
     <p>
         <a class="btn btn-secondary justify-content-around mt-4"
            href="{% url 'cliente:index' %}">Ir al inicio</a>
     </p>
+
 {% endblock content %}

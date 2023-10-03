@@ -1,73 +1,39 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, ListView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from . import forms, models
 
-#from . import models, forms
-from .models import Cliente, Pais
-from .forms import *
+class ClienteList(ListView):
+    model = models.Cliente
 
-
-def index(request):
-    clientes = Cliente.objects.all()
-
-    return render(request, "cliente/index.html", {"clientes": clientes})
-
-def crear(request):
-    if request.method == "POST":
-        form = ClienteForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("cliente:index")
-    else:
-        form = ClienteForm()
-    return render(request, "cliente/crear.html", {"form": form})
+    def get_queryset(self):
+        if self.request.GET.get("buscar"):
+            consulta = self.request.GET.get("buscar")
+            object_list = models.Cliente.objects.filter(nombre__icontains=consulta)
+        else:
+            object_list = models.Cliente.objects.all()
+        return object_list
 
 
-def agregar_pais(request):
-    if request.method == "POST":
-        form = PaisForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("cliente:index")
-    else:
-        form = PaisForm()
-    return render(request, "cliente/agregar_pais.html", {"form": form})
+class ClienteCreate(CreateView):
+    model = models.Cliente
+    form_class = forms.ClienteForm
+    success_url = reverse_lazy("cliente:index")
 
 
-def buscar(request):
-    resultados = []
-
-    if request.method == 'POST':
-        form = BuscarPorPais(request.POST)
-        if form.is_valid():
-            nombre_pais = form.cleaned_data['nombre_pais']
-            try:
-                pais = Pais.objects.get(nombre=nombre_pais)
-                resultados = Cliente.objects.filter(pais_origen_id=pais)
-            except Pais.DoesNotExist:
-                resultados = []
-    
-    else:
-        form = BuscarPorPais()
-
-    return render(request, 'cliente/buscar.html', {'form': form, 'resultados': resultados})
+class ClienteDetail(DetailView):
+    model = models.Cliente
 
 
+class ClienteUpdate(UpdateView):
+    model = models.Cliente
+    form_class = forms.ClienteForm
+    success_url = reverse_lazy("cliente:index")
 
-def eliminar_cliente(request):
-    if request.method == "POST":
-        form = EliminarCliente(request.POST)
-        if form.is_valid():
-            cliente_id = form.cleaned_data['cliente_id']
-            try:
-                cliente = Cliente.objects.get(pk=cliente_id)
-                cliente.delete()
-                return redirect("cliente:index")
-            except Cliente.DoesNotExist:
-                #return HttpResponse("ID de cliente invalido")
-                form.add_error('cliente_id', 'ID de cliente inválido. Vuelve a intentarlo.')
-    else:
-        form = EliminarCliente()
-    return render(request, "cliente/eliminar_cliente.html", {"form": form}) 
-        
+
+class ClienteDelete(DeleteView):
+    model = models.Cliente
+    success_url = reverse_lazy("cliente:index")
 
 

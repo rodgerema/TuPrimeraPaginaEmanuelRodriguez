@@ -1,0 +1,47 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}
+    <h2>Clientes</h2>
+{% endblock title %}
+{% block content %}
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0"
+                 src=" {% static 'home/img/clientes.jpeg' %}" />
+        </div>
+        <table class="table table-hover table-responsive table-condensed" border="0">
+            <thead>
+                <tr class="d-flex">
+                    <th class="col-1">Nombre</th>
+                    <th class="col-3">Apellido</th>
+                    <th class="col-5">País</th>
+                    <th class="col-7">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in object_list %}
+                    <tr class="d-flex">
+                        <td class="col-1"> {{ cliente.nombre | capfirst }}
+                        <td class="col-3"> {{ cliente.apellido | capfirst }}
+                        <td class="col-5"> {{ cliente.pais_origen_id.nombre| capfirst }}
+                        <td class="col-7">
+                            <div class="btn-group">
+                                <a href="{% url 'cliente:cliente_detail' cliente.id %}" class="btn btn-secondary btn-sm">Detalle</a>
+                                {% if user.is_staff %}
+                                <a href="{% url 'cliente:cliente_update' cliente.id %}" class="btn btn-primary btn-sm">Actualizar</a>
+                                <a href="{% url 'cliente:cliente_delete' cliente.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                                {% endif %}
+                            </div>
+                    </tr>
+                {% empty %}
+                        <tr class="d-flex">
+                            <td colspan="3">No se encontraron resultados.</td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-6">
+        <a href="{% url 'cliente:cliente_create' %}" class="btn btn-success btn-lg mb-4 ">Crear Cliente</a>
+    </div>
+{% endblock content %}

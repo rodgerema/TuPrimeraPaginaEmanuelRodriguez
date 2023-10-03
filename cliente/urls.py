@@ -16,15 +16,16 @@ Including another URLconf
 """
 
 from django.urls import path
+from django.views.generic import TemplateView
 
 from . import views
 
 app_name = "cliente"
 
 urlpatterns = [
-    path("", views.index, name="index"),
-    path("crear/", views.crear, name="crear"),
-    path("buscar/", views.buscar, name="buscar"),
-    path("agregar_pais/", views.agregar_pais, name="agregar_pais"),
-    path("eliminar_cliente/", views.eliminar_cliente, name="eliminar_cliente"),
+    path("", views.ClienteList.as_view(), name="index"),
+    path("crear/", views.ClienteCreate.as_view(), name="cliente_create"),
+    path("detail/<int:pk>", views.ClienteDetail.as_view(), name="cliente_detail"),
+    path("update/<int:pk>", views.ClienteUpdate.as_view(), name="cliente_update"),
+    path("delete/<int:pk>", views.ClienteDelete.as_view(), name="cliente_delete"),
 ]

@@ -1,12 +1,17 @@
-{% extends "home/base.html" %}
+{% extends 'home/base.html' %}
+
 {% block title %}
-    <h2>Agregar pais</h2>
+    Eliminar Cliente
 {% endblock title %}
+
 {% block content %}
+    <p class="fs-5 fst-italic">¿Está seguro de eliminar el cliente {{ object.nombre }} {{ object.apellido}}?</p>
+
     <form action="" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <div class="row mt-4">
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+        </div>
     </form>
     <p>
         <a class="btn btn-secondary justify-content-around mt-4"
