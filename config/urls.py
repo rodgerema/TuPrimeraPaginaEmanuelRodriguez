@@ -28,4 +28,4 @@ urlpatterns += [
     path('cliente/', include("cliente.urls")),
     path('stock/', include("stock.urls")),
     path('compras/', include("compras.urls")), 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

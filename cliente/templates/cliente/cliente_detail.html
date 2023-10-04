@@ -14,7 +14,7 @@
         <li><strong>Pais:</strong> {{ object.pais_origen_id }}
         {% if object.imagen %}
             <li><strong>Imagen:</strong><br>
-                <img src="images/mono.jpeg" alt="{{ object.nombre}}'s Imagen" style="max-width: 300px;">
+                <img src="{{ object.imagen.url }}" alt="{{ object.nombre}}'s Imagen" style="max-width: 300px;">
             </li>
         {% endif %}
     </ul>

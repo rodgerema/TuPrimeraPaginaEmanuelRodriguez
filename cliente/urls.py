@@ -30,4 +30,4 @@ urlpatterns = [
     path("detail/<int:pk>", views.ClienteDetail.as_view(), name="cliente_detail"),
     path("update/<int:pk>", views.ClienteUpdate.as_view(), name="cliente_update"),
     path("delete/<int:pk>", views.ClienteDelete.as_view(), name="cliente_delete"),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
