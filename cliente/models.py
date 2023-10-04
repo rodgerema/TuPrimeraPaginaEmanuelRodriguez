@@ -11,6 +11,7 @@ class Cliente(models.Model):
     apellido = models.CharField(max_length=100)
     nacimiento = models.DateField(null=True)
     pais_origen_id = models.ForeignKey(Pais, on_delete=models.SET_NULL, null=True, blank=True)
+    imagen = models.ImageField(upload_to='images/', null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.nombre} {self.apellido}"
