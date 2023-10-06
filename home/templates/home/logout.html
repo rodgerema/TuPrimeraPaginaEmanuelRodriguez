@@ -1,7 +1,10 @@
 {% extends 'home/base.html' %}
-
+{% load static %}
 {% block content %}
-
-    <p class="fs-3 fst-italic ">Has cerrado sesión</p>
-
+    <div class="mt-4 mb-5">
+        <p class="fs-3 fst-italic ">Has cerrado sesión, esperamos verte pronto !!!</p>
+        <br />
+        <img class="img-fluid rounded mb-5 mb-lg-0 mt-5"
+             src=" {% static 'home/img/forest.gif' %}" />
+    </div>
 {% endblock content %}

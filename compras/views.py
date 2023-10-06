@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-
-#from . import models, forms
+from django.shortcuts import render
+from django.urls import reverse_lazy
 from .models import Categoria, Compras
+from django.views.generic import CreateView
 from .forms import *
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your views here.
 def index(request):
@@ -11,16 +12,10 @@ def index(request):
 
     return render(request, "compras/index.html", {"compras": compras})
 
-def crear(request):
-    if request.method == "POST":
-        form = ComprasForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("compras:index")
-    else:
-        form = ComprasForm()
-    return render(request, "compras/crear.html", {"form": form})
-
+class ComprasCreate(CreateView):
+    model = models.Compras
+    form_class = ComprasForm
+    success_url = reverse_lazy("compras:index")
 
 def buscar(request):
     resultados = []
