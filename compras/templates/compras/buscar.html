@@ -1,22 +1,38 @@
 {% extends "home/base.html" %}
 {% block title %}
-    <title>Buscar Stock por ubicacion</title>
+    <title>Buscar Compras por categoria</title>
 {% endblock title %}
 {% block content %}
-    <h1>Buscar Stock por categoria</h1>
+    <h1>Buscar Compras por categoria</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Buscar</button>
     </form>
     <h2>Resultados:</h2>
-    <ul>
-        {% for stock in resultados %}
-            <li>{{ stock.articulo }} {{ stock.cantidad }}</li>
-        {% empty %}
-            <li>No se encontraron resultados.</li>
-        {% endfor %}
-    </ul>
+    <div class="col-lg-5">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Articulo</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in resultados %}
+                <tr>
+                    <td>{{ stock.articulo }}</td>
+                    <td>{{ stock.cantidad }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>No se encontraron resultados.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    
+        </table>
+    </div>
     <p>
         <a class="btn btn-secondary justify-content-around mt-4"
            href="{% url 'compras:index' %}">Ir al inicio</a>

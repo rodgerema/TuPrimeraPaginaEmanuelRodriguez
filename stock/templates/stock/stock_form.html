@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 
 {% block title %}
-    Cliente
+    <h2> Editar Articulo {{ object.articulo }} </h2>
 {% endblock title %}
 
 {% block content %}
@@ -10,13 +10,13 @@
         {% csrf_token %}
         {{ form.as_p }}
         <div class="row mt-4">
-            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="submit" class="btn btn-success ">Guardar</button>
         </div>
     </form>
     
     <p>
         <a class="btn btn-secondary justify-content-around mt-4"
-           href="{% url 'cliente:index' %}">Ir al inicio</a>
+           href="{% url 'stock:index' %}">Ir al inicio</a>
     </p>
 
 {% endblock content %}
