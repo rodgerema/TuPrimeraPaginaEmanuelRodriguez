@@ -17,6 +17,7 @@
                         <th>Precio</th>
                         <th>Cantidad</th>
                         <th>Categoria</th>
+                        <th>Fecha de Compra</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,7 @@
                             <td>{{ compras.precio }}</td>
                             <td>{{ compras.cantidad }}</td>
                             <td>{{ compras.categoria_id }}</td>
+                            <td>{{ compras.timestamp|date:"Y-m-d" }}</td>
                         </tr>
                     {% empty %}
                         <tr>

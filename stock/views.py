@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView, UpdateView
 from django.views.generic import DetailView, CreateView
@@ -12,16 +12,6 @@ def index(request):
     stock = Stock.objects.all()
 
     return render(request, "stock/index.html", {"stock": stock})
-
-# def crear(request):
-#     if request.method == "POST":
-#         form = StockForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("stock:index")
-#     else:
-#         form = StockForm()
-#     return render(request, "stock/crear.html", {"form": form})
 
 
 class StockCreate(CreateView):

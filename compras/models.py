@@ -14,6 +14,7 @@ class Compras(models.Model):
     precio = models.IntegerField()
     cantidad = models.IntegerField()
     categoria_id = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
         return f"{self.articulo} {self.precio} {self.cantidad} {self.categoria_id}"

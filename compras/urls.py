@@ -23,6 +23,6 @@ app_name = "compras"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("crear/", views.crear, name="crear"),
+    path("crear/", views.ComprasCreate.as_view(), name="crear"),
     path("buscar/", views.buscar, name="buscar"),
 ]
