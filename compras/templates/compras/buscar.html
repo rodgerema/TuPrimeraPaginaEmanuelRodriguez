@@ -20,17 +20,16 @@
             </thead>
             <tbody>
                 {% for stock in resultados %}
-                <tr>
-                    <td>{{ stock.articulo }}</td>
-                    <td>{{ stock.cantidad }}</td>
-                </tr>
+                    <tr>
+                        <td>{{ stock.articulo }}</td>
+                        <td>{{ stock.cantidad }}</td>
+                    </tr>
                 {% empty %}
-                <tr>
-                    <td>No se encontraron resultados.</td>
-                </tr>
+                    <tr>
+                        <td>No se encontraron resultados.</td>
+                    </tr>
                 {% endfor %}
             </tbody>
-    
         </table>
     </div>
     <p>

@@ -1,11 +1,8 @@
 {% extends 'home/base.html' %}
-
 {% block title %}
-    <h2> Agregar nueva compra {{ object.articulo }} </h2>
+    <h2>Agregar nueva compra {{ object.articulo }}</h2>
 {% endblock title %}
-
 {% block content %}
-
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
@@ -13,10 +10,8 @@
             <button type="submit" class="btn btn-success ">Guardar</button>
         </div>
     </form>
-    
     <p>
         <a class="btn btn-secondary justify-content-around mt-4"
            href="{% url 'stock:index' %}">Ir al inicio</a>
     </p>
-
 {% endblock content %}

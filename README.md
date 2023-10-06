@@ -88,8 +88,8 @@ Ref: https://docs.djangoproject.com/en/4.2/howto/initial-data/
 
 * Se utilizo el shortcut de VSCode para dar formato a todos los archivos html
 
- MAC: ⇧⌥F
- WINDOWS: Ctrl+Shift+I 
+ - MAC: ⇧⌥F
+ - WINDOWS: Ctrl+Shift+I 
 
 Ref: https://code.visualstudio.com/docs/languages/html#_formatting
 
